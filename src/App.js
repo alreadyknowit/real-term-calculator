@@ -13,7 +13,7 @@ function App() {
 
   useEffect(() => {
     // Load inflation data
-    fetch('/inflation-data.json')
+    fetch(`${process.env.PUBLIC_URL}/inflation-data.json`)
       .then(response => response.json())
       .then(data => {
         setInflationData(data);
