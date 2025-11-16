@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/real-term-calculator/static/css/main.30551db7.css",
+    "main.js": "/real-term-calculator/static/js/main.690951bc.js",
+    "index.html": "/real-term-calculator/index.html",
+    "main.30551db7.css.map": "/real-term-calculator/static/css/main.30551db7.css.map",
+    "main.690951bc.js.map": "/real-term-calculator/static/js/main.690951bc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.30551db7.css",
+    "static/js/main.690951bc.js"
+  ]
+}
