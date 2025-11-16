@@ -46,7 +46,7 @@ function ResultsSummary({ summary }) {
         
         <div className="info-item">
           <p>
-            <strong>Kredi Aldınız:</strong> Diyelim ki kredi ile bir ev aldınız ve bugün elinize <strong>{formatCurrency(summary.principalAmount)}</strong> geçti.
+            <strong>Kredi Aldınız:</strong> Diyelim ki kredi ile bir ev almak için başvuru yaptınız ve bugün elinize <strong>{formatCurrency(summary.principalAmount)}</strong> geçti.
           </p>
           <p>
             <strong>Geri Ödeme:</strong> <strong>{summary.totalInstallments} ay</strong> boyunca her ay <strong>{formatCurrency(summary.monthlyPayment)}</strong> ödüyorsunuz. 

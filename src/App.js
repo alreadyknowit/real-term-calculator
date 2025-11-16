@@ -19,7 +19,19 @@ function App() {
         setInflationData(data);
         console.log('Inflation data loaded successfully');
         // İlk yüklemede otomatik hesapla
-        const result = calculateRealValue(10000, 12, 1000, '06-2024', data);
+        // Başlangıç tarihini otomatik hesapla: son veri - taksit sayısı
+        const latestDate = data[0].date;
+        const [latestMonth, latestYear] = latestDate.split('-').map(Number);
+        const installments = 12;
+        let calculatedMonth = latestMonth - installments + 1;
+        let calculatedYear = latestYear;
+        while (calculatedMonth < 1) {
+          calculatedMonth += 12;
+          calculatedYear -= 1;
+        }
+        const autoStartDate = `${String(calculatedMonth).padStart(2, '0')}-${calculatedYear}`;
+        
+        const result = calculateRealValue(10000, 12, 1000, autoStartDate, data);
         setResults(result);
       })
       .catch(error => {
@@ -49,6 +61,32 @@ function App() {
       <div className="header">
         <h1>💰 Enflasyon Hesaplayıcı</h1>
         <p>Taksit ödemelerinizin reel değerini hesaplayın</p>
+        
+        {/* YouTube Video */}
+        <div className="video-container" style={{ 
+          margin: '20px auto',
+          maxWidth: '800px',
+          position: 'relative',
+          paddingBottom: '56.25%',
+          height: 0,
+          overflow: 'hidden'
+        }}>
+          <iframe
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              border: 'none',
+              borderRadius: '8px'
+            }}
+            src="https://www.youtube.com/embed/3divucVqYhU"
+            title="Enflasyon Hesaplayıcı Nasıl Kullanılır?"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
       </div>
 
       <CalculatorForm 
